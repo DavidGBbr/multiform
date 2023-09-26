@@ -1,3 +1,5 @@
+"use client";
+
 import React, { createContext, useContext, useReducer } from "react";
 
 interface IState {
@@ -28,7 +30,7 @@ const initialData: IState = {
   github: "",
 };
 
-enum FormActions {
+export enum FormActions {
   setCurrentStep,
   setName,
   setLevel,
@@ -51,7 +53,7 @@ const formReducer = (state: IState, action: IAction) => {
   }
 };
 
-const FormProvider = ({ children }: React.PropsWithChildren) => {
+export const FormProvider = ({ children }: React.PropsWithChildren) => {
   const [state, dispatch] = useReducer(formReducer, initialData);
 
   return (
@@ -61,7 +63,7 @@ const FormProvider = ({ children }: React.PropsWithChildren) => {
   );
 };
 
-const useForm = () => {
+export const useForm = () => {
   const context = useContext(FormContext);
   if (context === undefined) {
     throw new Error("useForm precisa ser usado dentro do FormProvider");

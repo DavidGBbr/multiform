@@ -24,7 +24,7 @@ const FormStep2 = () => {
 
   const handleNextStep = () => {
     if (state.name !== "") {
-      router.push("/formstep2");
+      router.push("/formstep3");
     } else {
       alert("Preencha os dados.");
     }
